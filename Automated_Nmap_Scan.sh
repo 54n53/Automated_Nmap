@@ -33,9 +33,9 @@ function scan_tcp {
         echo "Puertos TCP abiertos encontrados: $open_ports_tcp"
         # Realizar un escaneo exhaustivo de versiones en los puertos abiertos TCP
         echo "Realizando un escaneo exhaustivo de versiones en los puertos TCP abiertos:"
-        sudo nmap -sCV -p $open_ports_tcp $ip_address
+        sudo nmap -sCV -p $open_ports_tcp $ip_address | tee tcp_service_versions.log
         echo "Realizando un escaneo de vulnerabilidades para los puertos TCP abiertos:"
-        sudo nmap -sV -p $open_ports_tcp --script=vulscan/vulscan.nse $ip_address
+        sudo nmap -sV -p $open_ports_tcp --script=vulscan/vulscan.nse $ip_address | tee tcp_service_vulnerabilities.log
     fi
 }
 
@@ -55,9 +55,9 @@ function scan_udp {
         echo "Puertos UDP abiertos encontrados: $open_ports_udp"
         # Realizar un escaneo exhaustivo de versiones en los puertos abiertos UDP
         echo "Realizando un escaneo exhaustivo de versiones en los puertos UDP abiertos:"
-        sudo nmap -sCUV -p $open_ports_udp $ip_address
+        sudo nmap -sCUV -p $open_ports_udp $ip_address | tee udp_service_versions.log
         echo "Realizando un escaneo de vulnerabilidades para los puertos UDP abiertos:"
-        sudo nmap -sUV -p $open_ports_udp --script=vulscan/vulscan.nse $ip_address
+        sudo nmap -sUV -p $open_ports_udp --script=vulscan/vulscan.nse $ip_address | tee udp_service_vulnerabilities.log
     fi
 }
 
