@@ -1,6 +1,6 @@
 # Automated_Nmap
 
-This script automates the process of scanning ports on an IP address and provides detailed information () about the services running on the open ports. It can be applied to both upd and tcp ports.
+This script automates the process of scanning ports on an IP address and provides detailed information (e.g. version and vulnerabilities) about the services running on the open ports. It can be applied to both upd and tcp ports.
 
 ## Input
 The IP we want to scan.
